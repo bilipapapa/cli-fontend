@@ -1,0 +1,24 @@
+import type { RouteRecordRaw } from 'vue-router'
+
+import { createRouter, createWebHistory } from 'vue-router'
+
+import example from './example'
+import { setupRouterGuard } from './guards'
+
+const routes: Array<RouteRecordRaw> = [
+  { path: '/', redirect: '/home' },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/main/not-found/index.vue') },
+  { path: '/home', name: 'Home', component: () => import('@/views/main/home/index.vue'), meta: { title: '首页' } },
+
+  example,
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  strict: true,
+  routes,
+})
+
+setupRouterGuard(router)
+
+export default router

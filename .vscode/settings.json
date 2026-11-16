@@ -1,0 +1,25 @@
+{
+  // Format code on save
+  "editor.formatOnSave": true,
+
+  // Automatically apply code fixes on manual save
+  "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
+
+  // Set default formatter to prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Configure Stylelint to validate the following files
+  "stylelint.validate": ["css", "scss", "vue"],
+
+  // Nest related files
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": true,
+  "explorer.fileNesting.patterns": {
+    ".env": ".env.*",
+    "package.json": "pnpm-lock.yaml, pnpm-workspace.yaml, .gitattributes, .gitignore, .npmrc, .node-version, .git*",
+    "eslint.config.js": ".prettierrc.*, .prettierignore, stylelint.config.*, .stylelintignore, lint-staged.config.js, commitlint.config.js",
+    "vite.config.*": ".browserslistrc, postcss.config.*, tsconfig.*",
+    "README.*": "README.*.md, LICENSE",
+    "*.ts": "$(capture).model.ts"
+  }
+}
